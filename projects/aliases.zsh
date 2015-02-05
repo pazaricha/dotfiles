@@ -1,0 +1,1 @@
+alias keeptrack_project='cd /Users/pazaricha/projects/Takzivly'
