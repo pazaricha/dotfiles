@@ -89,7 +89,12 @@ directory_name() {
 }
 
 current_time() {
-  echo "%D{%H:%M:%S} ✡"
+  H=$(date +%H)
+  if (( 16 <= 10#$H && 10#$H < 20 )); then 
+    echo "%{$bg_bold[red]%}%D{%H:%M:%S} ⚐%{$reset_color%}"
+  else
+    echo "%D{%H:%M:%S} ✡"
+  fi
 }
 
 export PROMPT=$'\n$(rb_prompt)➼  $(directory_name) $(git_dirty)$(need_push) $(current_time)\n› '
