@@ -59,7 +59,7 @@ need_push () {
   then
     echo " "
   else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
+    echo " %{$fg_bold[magenta]%}⬇%{$reset_color%} "
   fi
 }
 
@@ -88,7 +88,11 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt)➼  $(directory_name) $(git_dirty)$(need_push)\n› '
+current_time() {
+  echo "%D{%H:%M:%S} ✡"
+}
+
+export PROMPT=$'\n$(rb_prompt)➼  $(directory_name) $(git_dirty)$(need_push) $(current_time)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
