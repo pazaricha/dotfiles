@@ -1,0 +1,2 @@
+export OTTOPATH=$PROJECTS/otto
+export PATH="$OTTOPATH:$PATH"
